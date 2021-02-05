@@ -24,6 +24,9 @@ dependencies:
   flutter:
     sdk: flutter
 
+  # Network
+  dio: ^3.0.10
+
   # Routing
   sailor: ^0.7.1
 

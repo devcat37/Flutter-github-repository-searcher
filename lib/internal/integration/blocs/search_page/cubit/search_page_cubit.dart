@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
+import 'package:dio/dio.dart';
 
 part 'search_page_state.dart';
 
@@ -15,8 +16,14 @@ class SearchPageCubit extends Cubit<SearchPageState> {
         emit(SearchPageLoading());
         print('[DEBUG]: Entered text is ' + repositoryName);
         return Future.delayed(
-          Duration(milliseconds: 2500),
+          Duration(milliseconds: 1000),
           () async {
+            const _BASE_URL = "https://api.github.com/search/repositories?q=";
+            final Dio _dio = Dio(BaseOptions(baseUrl: _BASE_URL));
+
+            final response = await _dio.get(_BASE_URL + repositoryName);
+            print(response.data['items'].length);
+
             emit(SearchPageLoadedSuccess());
           },
         );
