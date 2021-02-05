@@ -24,6 +24,12 @@ dependencies:
   flutter:
     sdk: flutter
 
+  # Path
+  path_provider: ^1.6.27
+
+  # Local storage
+  hive: ^1.4.4+1
+
   # Network
   dio: ^3.0.10
 

@@ -6,7 +6,14 @@ class Theming {
         errorColor: Color(0xFFB00020),
         scaffoldBackgroundColor: Colors.white,
         textTheme: TextTheme(
-          headline6: TextStyle(fontSize: 10.0, color: Colors.black),
+          headline6: TextStyle(
+              fontSize: 10.0,
+              color: Colors.black,
+              fontFamily: 'Sf-Pro-Display'),
+          headline5: TextStyle(
+              fontSize: 12.0,
+              color: Colors.black,
+              fontFamily: 'Sf-Pro-Display'),
         ),
         appBarTheme: AppBarTheme(
           color: Colors.white,
