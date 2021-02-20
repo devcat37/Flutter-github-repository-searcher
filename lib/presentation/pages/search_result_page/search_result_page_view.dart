@@ -28,12 +28,16 @@ class SearchResultPageView extends StatelessWidget {
                           .headline6
                           .copyWith(color: Color(0xFFA6A6A6)),
                     ),
-                    Text(
-                      '"$queryName"',
-                      style: Theme.of(context)
-                          .textTheme
-                          .headline6
-                          .copyWith(color: Colors.blue),
+                    GestureDetector(
+                      onTap: () => BlocProvider.of<SearchResultCubit>(context)
+                          .routeToSearchPage(context),
+                      child: Text(
+                        '"$queryName"',
+                        style: Theme.of(context)
+                            .textTheme
+                            .headline6
+                            .copyWith(color: Colors.blue),
+                      ),
                     ),
                   ],
                 ),
