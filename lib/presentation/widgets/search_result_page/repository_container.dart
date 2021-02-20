@@ -46,7 +46,7 @@ class RepositoryContainer extends StatelessWidget {
                         .copyWith(fontWeight: FontWeight.bold)),
                 Container(
                   height: 24.0,
-                  width: 50.0,
+                  width: 55.0,
                   decoration: BoxDecoration(
                     color: Color(0xFFA6A6A6),
                     borderRadius: BorderRadius.circular(50.0),
@@ -56,14 +56,37 @@ class RepositoryContainer extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Icon(Icons.star_outline,
-                            size: 16.0, color: Colors.white),
-                        Text(
-                          repo.stargazersCount.toString().substring(0, 3),
-                          style: Theme.of(context)
-                              .textTheme
-                              .headline6
-                              .copyWith(color: Colors.white),
+                        Expanded(
+                          flex: 1,
+                          child: Container(
+                            child: Icon(Icons.star_outline,
+                                size: 16.0, color: Colors.white),
+                          ),
+                        ),
+                        Expanded(
+                          flex: 2,
+                          child: Container(
+                            child: Center(
+                              child: Text(
+                                repo.stargazersCount.toString().length > 3
+                                    ? ((repo.stargazersCount / 1e3)
+                                            .toString()
+                                            .substring(
+                                                0,
+                                                (repo.stargazersCount / 1e3)
+                                                        .toString()
+                                                        .indexOf('.') -
+                                                    1 +
+                                                    1) +
+                                        'k')
+                                    : (repo.stargazersCount.toString()),
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .headline6
+                                    .copyWith(color: Colors.white),
+                              ),
+                            ),
+                          ),
                         )
                       ],
                     ),

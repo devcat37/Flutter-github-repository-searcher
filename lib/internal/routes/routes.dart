@@ -5,12 +5,15 @@ class Routes {
   static final sailor = Sailor();
 
   static void createRoutes() {
-    sailor.addRoutes([
-      SailorRoute(
+    sailor.addRoutes(
+      [
+        SailorRoute(
           name: '/search_result',
           builder: (context, args, params) {
             return SearchResultPage(args);
-          }),
-    ]);
+          },
+        ),
+      ],
+    );
   }
 }
